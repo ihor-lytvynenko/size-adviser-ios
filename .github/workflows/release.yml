@@ -1,0 +1,18 @@
+name: Release
+
+on: workflow_dispatch
+  
+
+jobs:
+  release:
+    name: Release
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+      - run: pip install -r scripts/requirements.txt
+        working-directory: ./SizeAdviserKit
+      - run: python scripts/release.py ${{ secrets.TOKEN }} ${{ github.ref_name }}
+        working-directory: ./SizeAdviserKit

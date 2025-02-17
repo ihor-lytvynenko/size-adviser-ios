@@ -1,0 +1,19 @@
+name: Run Unit Tests
+
+on:
+  workflow_dispatch: 
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  unit-tests:
+    name: Build and Test on iPhone15 simulator
+    runs-on: macos-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Run tests
+        working-directory: ./SizeAdviserKit
+        run: xcodebuild test -scheme SizeAdviserKitTests -project SizeAdviserKit.xcodeproj -destination 'platform=iOS Simulator,name=iPhone 15,OS=18.1' | xcpretty && exit ${PIPESTATUS[0]}

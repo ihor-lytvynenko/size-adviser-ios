@@ -1,10 +1,10 @@
 # size-adviser-ios
 
-## Installationn
-### Manual Intnegration
+## Installation
+### Manual Integration
 In order to use the SDK please follow the instructions below:
-1. add the framework file to your targe
-2. Add SizeAdviserSDK as a target dependecy
+1. add the framework file to your target
+2. Add SizeAdviserSDK as a target dependency
 
 ### Cocoapods - TBD
 
